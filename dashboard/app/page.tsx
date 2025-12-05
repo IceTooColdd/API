@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/navigation"; // Import Router
+import { useRouter } from "next/navigation"; 
 import { ApiLog, Incident } from "@/types";
 import { AlertTriangle, CheckCircle, Clock, XCircle, Activity, Zap, CheckSquare, LogOut } from "lucide-react";
 import { format } from "date-fns";
@@ -12,13 +12,12 @@ export default function Dashboard() {
   const [incidents, setIncidents] = useState<Incident[]>([]);
   const [loading, setLoading] = useState(true);
   
-  // Filters
   const [filterService, setFilterService] = useState("ALL");
   const [filterStatus, setFilterStatus] = useState("ALL");
 
   const router = useRouter();
 
-  // 🔥 Helper to get headers with Token
+
   const getAuthHeader = () => {
     const token = localStorage.getItem("jwt_token");
     return { headers: { Authorization: `Bearer ${token}` } };
@@ -26,28 +25,24 @@ export default function Dashboard() {
 
   const fetchData = async () => {
     try {
-      // 1. Check if token exists
       const token = localStorage.getItem("jwt_token");
       if (!token) {
-        router.push("/login"); // Kick to login if no token
+        router.push("/login"); 
         return;
       }
 
-      // 2. Fetch Logs (With Token)
       const logRes = await axios.get("http://localhost:8080/api/collector/logs", getAuthHeader());
       const sortedLogs = logRes.data.sort((a: ApiLog, b: ApiLog) => 
         new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
       );
       setLogs(sortedLogs);
 
-      // 3. Fetch Incidents (With Token)
       const incidentRes = await axios.get("http://localhost:8080/api/collector/incidents", getAuthHeader());
       setIncidents(incidentRes.data);
       setLoading(false);
 
     } catch (error: any) {
       console.error("Failed to fetch data", error);
-      // If token is invalid/expired (403 or 401), force logout
       if (error.response?.status === 403 || error.response?.status === 401) {
         localStorage.removeItem("jwt_token");
         router.push("/login");

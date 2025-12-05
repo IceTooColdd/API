@@ -16,25 +16,21 @@ export default function LoginPage() {
     setError("");
 
     try {
-      // 1. Send credentials to Backend
       const response = await axios.post("http://localhost:8080/api/auth/login", {
         username,
         password,
       });
 
-      // 2. Save the Token (The "Ticket")
+      
       const token = response.data.token;
       localStorage.setItem("jwt_token", token);
       localStorage.setItem("username", response.data.username);
 
-      // 3. Go to Dashboard
       router.push("/");
     } catch (err: any) {
       if (err.response?.status === 401) {
-        // If 401, it means User Not Found. Let's try to register them automatically for this demo!
         try {
            await axios.post("http://localhost:8080/api/auth/register", { username, password });
-           // If register works, try logging in again immediately
            const loginRes = await axios.post("http://localhost:8080/api/auth/login", { username, password });
            localStorage.setItem("jwt_token", loginRes.data.token);
            router.push("/");

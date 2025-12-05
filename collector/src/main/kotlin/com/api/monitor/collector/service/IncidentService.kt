@@ -8,12 +8,10 @@ import org.springframework.transaction.annotation.Transactional
 @Service
 class IncidentService(private val incidentRepository: IncidentRepository) {
 
-    // 1. Get all Open Incidents
     fun getOpenIncidents(): List<Incident> {
         return incidentRepository.findAll().filter { it.status == "OPEN" }
     }
 
-    // 2. Resolve an Incident (With Optimistic Locking Safety)
     @Transactional
     fun resolveIncident(id: String) {
         val incident = incidentRepository.findById(id).orElseThrow { 
@@ -22,8 +20,6 @@ class IncidentService(private val incidentRepository: IncidentRepository) {
         
         incident.status = "RESOLVED"
         
-        // Spring Data MongoDB checks the @Version field here automatically.
-        // If someone else modified it meanwhile, this will throw an OptimisticLockingFailureException
         incidentRepository.save(incident)
     }
 }

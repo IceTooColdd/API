@@ -5,5 +5,5 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface ApiLogRepository : MongoRepository<ApiLog, String> {
-    // Add custom queries here if needed, e.g., findByServiceName
+    
 }

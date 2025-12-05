@@ -20,21 +20,18 @@ class ApiTrackingInterceptor(
     private val restTemplate = RestTemplate()
 
     init {
-        println("💣💣💣 TRACKER CLIENT INTERCEPTOR IS INITIALIZED 💣💣💣")
+        println("TRACKER CLIENT INTERCEPTOR IS INITIALIZED")
     }
 
     override fun preHandle(request: HttpServletRequest, response: HttpServletResponse, handler: Any): Boolean {
-        println("👀 Spy detected a request to: ${request.requestURI}")
         request.setAttribute("startTime", System.currentTimeMillis())
         
-        // Check Rate Limit (Non-blocking)
         if (rateLimiter.isRateLimitExceeded()) {
             request.setAttribute("rateLimitHit", true)
         } else {
             request.setAttribute("rateLimitHit", false)
         }
-        
-        return true // Always allow request to proceed
+        return true
     }
 
     override fun afterCompletion(

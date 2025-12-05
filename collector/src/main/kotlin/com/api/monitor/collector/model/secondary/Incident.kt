@@ -15,7 +15,6 @@ data class Incident(
     var status: String = "OPEN", // OPEN, RESOLVED
     val detectedAt: LocalDateTime = LocalDateTime.now(),
     
-    // 🔥 OPTIMISTIC LOCKING REQUIREMENT
     @Version
     val version: Long? = null
 )

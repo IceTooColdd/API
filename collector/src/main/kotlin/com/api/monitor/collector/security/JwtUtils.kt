@@ -11,9 +11,9 @@ import javax.crypto.SecretKey
 @Component
 class JwtUtils {
 
-    // 🔥 This is a secret key. In prod, use environment variable!
+    // This is a secret key. In prod, use environment variable
     private val jwtSecret = "404E635266556A586E3272357538782F413F4428472B4B6250645367566B5970"
-    private val jwtExpirationMs = 86400000 // 1 day
+    private val jwtExpirationMs = 86400000
 
     private fun getSignInKey(): SecretKey {
         val keyBytes = Decoders.BASE64.decode(jwtSecret)
